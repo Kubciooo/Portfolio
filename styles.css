@@ -25,6 +25,10 @@ a {
 
 .navbar {
     width: 100vw;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 100;
     height: 7vh;
     background: #272727;
     box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.15);
@@ -114,8 +118,6 @@ a {
 .main-container { 
     width: 100vw;
     padding: 5rem;
-
-
 }
 .page-header, .page-name {
     font-weight: 500;
@@ -161,6 +163,7 @@ a {
 
 }
 .card { 
+    cursor: pointer;
     position: relative;
     width: 30rem; 
     margin: 3rem;
@@ -198,6 +201,87 @@ a {
     height: 100%;
     /* object-fit: cover; */
 }
+
+
+.technologies-container { 
+    display: grid; 
+    padding: 5rem;
+
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: auto 1fr 1fr;
+    grid-template-areas: "title title title title title"
+                        "description description html css react"
+                        "description description gatsby js python";
+    gap: 5rem;
+}
+#technologies-title { 
+    grid-area: title;
+}
+#skills-description { 
+    grid-area: description;
+    color: white; 
+    font-weight: 100;
+    font-size: 2.4rem; 
+    text-align: justify;
+    letter-spacing: 0.04em;
+}
+#html { 
+    grid-area: html;
+}
+#css { 
+    grid-area: css; 
+}
+#react {
+    grid-area: react; 
+}
+#gatsby { 
+    grid-area: gatsby;
+}
+#python { 
+    grid-area: python; 
+}
+#js { 
+    grid-area: js; 
+}
+.technology-card { 
+    width: 30rem; 
+    height: 40rem; 
+    background-color: white;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25); 
+    cursor: pointer;
+}
+
+.technology-card__image {
+    width: 100%; 
+    height: 80%; 
+    position: relative;
+
+}
+.technology-card__text-container {
+    width: 100%;
+    height: 20%;
+    background: rgba(0, 0, 0, 0.72); 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.technology-card__title { 
+    color: white; 
+    font-weight: 400;
+    font-size: 3rem;
+    text-align: center;
+}
+.technology-card__image img {
+    object-fit: cover;
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+
 @keyframes slide-in {
     0% {
         transform: translateX(-100%);
