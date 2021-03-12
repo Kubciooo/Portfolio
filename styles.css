@@ -445,7 +445,8 @@ a {
 @media screen and (min-width: 840px)  {
     .technologies-container { 
         grid-template-columns: repeat(5,1fr);
-        grid-template-areas: "title title html css react"
+        grid-template-areas: "title title title title title" 
+                            "description description html css react"
                             "description description gatsby js python";
     }
 }
