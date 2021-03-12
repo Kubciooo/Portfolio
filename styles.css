@@ -515,6 +515,7 @@ a {
 }
 @media screen and (min-width: 840px) { 
     .technology-card__side--back {
+        display: block;
         position: relative; 
         transform: rotateY(180deg);  
     }
