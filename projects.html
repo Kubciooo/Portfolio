@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>About me</title>
+  </head>
+  <body>
+    <nav class="mobile-navbar">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="mobile-menu">
+          <li class="mobile-menu__item"><a href="/index.html">Home</a></li>
+          <li class="mobile-menu__item">
+            <a href="/about.html">About me</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="/technologies.html">Technologies</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a href="/projects.html" class="mobile-active">Projects</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <nav class="navbar">
+      <ul class="navbar__list">
+        <li class="navbar__list--item">
+          <a href="/index.html">Home</a>
+        </li>
+        <li class="navbar__list--item">
+          <a href="/about.html">About me</a>
+        </li>
+        <li class="navbar__list--item">
+          <a href="/technologies.html">Technologies</a>
+        </li>
+        <li class="navbar__list--item">
+          <a href="/projects.html" class="active">Projects</a>
+        </li>
+      </ul>
+    </nav>
+    <main class="technologies-container">
+      <h1 class="page-name">My Projects</h1>
+        <section id="dzikbook">
+            <h2 class="section-title">Dzikbook</h1>
+            <article>
+                <b>Dzikbook</b> is a team project (6 people) for studies - social media mobile application for
+                gym users.
+                <ul>
+                    <li>
+                        Designing frontend in 3 people team using Figma
+                    </li>
+                    <li>
+                        Programming frontend using Flutter
+                    </li>
+                    <li>
+                        Creating the project in SCRUM methodology using Jira.
+                    </li>
+                </ul>
+                <h3>Most spectacular code:</h2>
+                <pre>
+                    <code>
+Future<String> getOtherUserName(String userId) async {
+    final url = "$apiUrl/users/basic/$userId/";
+    try {
+        final response = await dio.get(url,
+            options: Options(headers: {
+            "Authorization": "Bearer " + token,
+            }));
+        if (response.statusCode >= 400) {
+        throw HttpException("Operacja nie powiodła się!");
+        }
+        final Map parsed = response.data;
+        return parsed["first_name"] + " " + parsed["last_name"];
+    } catch (error) {
+        print(error);
+        return "";
+    }
+    }
+
+    Future<String> getOtherUserImage(String userId) async {
+    final imgUrl = "$apiUrl/media/profile/user/$userId/";
+    try {
+        final imageResponse = await dio.get(imgUrl,
+            options: Options(headers: {
+            "Authorization": "Bearer " + token,
+            }));
+        return apiUrl + imageResponse.data["photo"]["photo"];
+    } catch (error) {
+        print(error);
+        print("WYWALA USERIMG");
+        return defaultPhotoUrl;
+    }
+    }
+                    </code>
+                </pre>
+            </article>
+        </section>
+        <section id="kompilator">
+            <h2 class="section-title">Compiler</h1>
+            <article>
+                <b>Compiler</b> is a for studies - JFTT course. It was made using Python library sly.
+                It's main purpose was to compile a given language into another machine-like language.
+                <h3>Most spectacular code:</h2>
+                <pre>
+                    <code>
+                        if __name__ == '__main__':
+    sys.tracebacklimit = None
+    arg_parser = create_arg_parser()
+    parsed_args = arg_parser.parse_args(sys.argv[1:])
+
+    if os.path.exists(parsed_args.input):
+        lexer = CalcLexer()
+        parser = CalcParser()
+        f = open(parsed_args.input, "r")
+        data = f.read()
+        if(len(data)==0):
+            raise SystemExit("File is empty!")
+        result = parser.parse(lexer.tokenize(data))
+        parser.program.find_errors()
+        if parsed_args.output:
+            f2 = open(parsed_args.output, "w") 
+            f2.write(parser.program.generate_code())
+        else:
+            print(parser.program.generate_code())
+    else:
+        raise SystemExit("Filepath is wrong!")
+                    </code>
+                </pre>
+            </article>
+        </section>
+        <section id="slusarczyk">
+            <h2 class="section-title">Medycynaestetycznalegnica</h1>
+            <article>
+                <b>Medycynaestetycznalegnica</b> is a Harp0n commercial project made for dr Ślusarczyk.
+                <ul>
+                    <li>
+                        Figma for design
+                    </li>
+                    <li>
+                        Stapi as CMS 
+                    </li>
+                    <li>
+                        ReactJS with GatsbyJS
+                    </li>
+                </ul>
+                <h3>Most spectacular code:</h2>
+                <pre>
+                    <code>
+function IndexPage() {
+    const data = useStaticQuery(query)
+    const {
+        export const query = graphql`
+        {
+          strapiStronaGlowna {
+            opis_gabinetu
+            opis_profesjonalizm
+            opis_oferta
+            opis_zaufanie
+            glowne_zdj {
+              childImageSharp {
+                fluid(maxWidth: 2000) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            glowne_zdj_mobile: glowne_zdj {
+              childImageSharp {
+                fluid(maxWidth: 1000) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            zdjecie_opis_gabinetu {
+              childImageSharp {
+                fluid(maxWidth: 1500) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          strapiMetaTag(nazwa_strony: { eq: "strona_glowna" }) {
+            opis_strony
+            tagi
+          }
+        }
+      `
+                    </code>
+                </pre>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <div class="contact-title">email</div>
+        <div class="contact-description">pkubala.1lo@gmail.com</div>
+
+        <div class="contact-title">telefon</div>
+        <div class="contact-description">503-344-460</div>
+    </footer>
+  </body>
+</html>
